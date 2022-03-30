@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+</head>
+
+<style>
+    * {
+        margin: 0%;
+        padding: 0%;
+    }
+
+    body {
+        background-color: rgb(206, 206, 206);
+    }
+
+    .nav-bar {
+        width: 100%;
+        background-color: rgb(38, 36, 167);
+        font-size: xx-large;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0px 0px 10px 5px gray;
+        color: rgb(255, 255, 255);
+    }
+
+    .bgc {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .d-flex {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .my-7 {
+        margin-top: 7rem;
+    }
+
+    .Container {
+        padding: 10px;
+        height: 100%;
+    }
+
+    .stu-input {
+        background-color: white;
+        height: 20rem;
+        width: 20rem;
+        box-shadow: 0px 2px 5px rgb(54, 51, 51);
+    }
+
+
+
+    table {
+        overflow: auto;
+    }
+
+    .Header2 {
+        width: 100%;
+        text-align: center;
+        background-color: rgb(38, 36, 167);
+        color: #fff;
+        padding: 10px;
+        font-size: larger;
+        box-shadow: -1px 2px 5px rgb(54, 51, 51);
+    }
+
+    .Form {
+        margin: 10px;
+    }
+
+    input {
+        width: 100%;
+        height: 2rem;
+        margin-top: 10px;
+        border-radius: 3px;
+        padding-left: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        border: none;
+    }
+
+    .Center {
+        justify-content: center;
+    }
+
+    .Container-List {
+        margin-left: 10px;
+        background-color: #fff;
+        height: 41rem;
+        box-shadow: 0px 0px 5px rgb(54, 51, 51);
+        width: 55%;
+    }
+
+    .graph {
+        margin-left: 10px;
+        background-color: #fff;
+        height: 20rem;
+        box-shadow: 0px 0px 5px rgb(54, 51, 51);
+        width: 30%;
+    }
+
+    .intrest {
+        margin-top: 2rem;
+        background-color: #fff;
+        height: 20rem;
+        box-shadow: 0px 0px 5px rgb(54, 51, 51);
+    }
+
+    .main {
+        height: 90%;
+        background-color: #fff;
+        overflow: auto;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        /* width of the entire scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(255, 255, 255);
+        /* color of the tracking area */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgb(232, 232, 235);
+        /* color of the scroll thumb */
+        border-radius: 25px;
+        /* roundness of the scroll thumb */
+        border: 3px solid rgb(255, 255, 255);
+        /* creates padding around scroll thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(167, 167, 235);
+    }
+
+    ::-webkit-scrollbar:hover {
+        width: 13px;
+        /* width of the entire scrollbar */
+        transition: 0.5s;
+    }
+</style>
+
+<body>
+    <div class="nav-bar">Placement App</div>
+
+
+    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong> warning </strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> -->
+
+    <div class="Container d-flex">
+        <div class="stu-input">
+            <div class="Header2">Student Registation</div>
+            <div class="Form">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="text" value="" name="sName" id="nameid" placeholder="Student Name">
+                    <input type="text" value="" maxlength="10" name="sMob" id="mobid" placeholder="Mobile number">
+                    <input type="text" value="" name="sEmail" id="emailid" placeholder="Email">
+
+                    <div class="dropdown px-2">
+                        <select name="course" id="courid" class="my-3">
+                            <option aria-details="course" style="color: #a3a2a5;">Course</option>
+                            <option value="BCA">BCA</option>
+                            <option value="B.tech">B.tech</option>
+                            <option value="BSC">BSC</option>
+                            <option value="MBA">MBA</option>
+                            <option value="PolyTech">Poly</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex Center">
+                        <button type="reset" style="background-color: red;">Reset</button>
+                        <button type="submit" id="save" style="background-color: green;">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="intrest my-7">
+                <div class="Header2">Menu</div>
+                <div class="">
+                    <a href="/BcaStu"><button class="btn btn-primary">BCA</button></a>
+                    <a href="#"> <button class="btn btn-success">B.tech</button></a>
+                    <a href="#"> <button class="btn btn-warning">BSC</button></a>
+                    <a href="#"> <button class="btn btn-info">MBA</button></a>
+                    <a href="#"> <button class="btn btn-danger">POLY</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="Container-List">
+            <div class="float-end" style="color:#fff;padding-right:20px;padding-top:10px;cursor:pointer;"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+                    viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                    <path
+                        d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+                </svg></div>
+            <div class="Header2">
+                <div class="center">Studentes</div>
+            </div>
+            <div class="main">
+                <table class="table table-striped bgc">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Cource</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {%for i in data%}
+                        <tr>
+                            <td>{{i.stuName}}</td>
+                            <td>{{i.bran}}</td>
+                            <td>{{i.stuMob}}</td>
+                            <td>{{i.stuEmail}}</td>
+                            <!-- <td><i style="color:rgb(9, 85, 9); cursor:pointer;" class="fa fa-edit"></i></td>
+                            <td><i class="fa fa-paperclip" style=" cursor:pointer;"></i></td>
+                            <td><i style="color:red;  cursor:pointer;" class="del-btn fa fa-trash"></i></td> -->
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="graph">
+            <div class="Header2">Tatal Student</div>
+            <div class="p-2">
+
+                <h3 class="" style="color: blue;">BCA :- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style=" font-size: larger;">{{Bcastu}}</span>
+                </h3>
+
+                <h3 class="" style="color: green;">B.tech :- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style=" font-size: larger;">{{B_tech}}</span>
+                </h3>
+
+                <h3 class="" style="color: rgb(255, 136, 0);">BSC :- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style=" font-size: larger;">{{BSC}}</span>
+                </h3>
+
+                <h3 class="" style="color: red;">Poly:- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style=" font-size: larger;">{{Poly}}</span>
+                </h3>
+                <h3 class="" style="color: rgb(0, 140, 255);">MBA:- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style=" font-size: larger;">{{MBA}}</span>
+                </h3>
+            </div>
+
+            <div class="intrest">
+                <div class="Header2">Intrest Student</div>
+                <div class="p-2">
+
+                    <h3 class="" style="color: blue;">BCA :- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style=" font-size: larger;">0</span>
+                    </h3>
+
+                    <h3 class="" style="color: green;">B.tech :- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style=" font-size: larger;">0</span>
+                    </h3>
+
+                    <h3 class="" style="color: rgb(255, 136, 0);">BSC :- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style=" font-size: larger;">0</span>
+                    </h3>
+
+                    <h3 class="" style="color: red;">Poly:- &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style=" font-size: larger;">0</span>
+                    </h3>
+                    <h3 class="" style="color: rgb(0, 140, 255);">MBA:- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style=" font-size: larger;">0</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+</html>
